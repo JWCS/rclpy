@@ -1582,7 +1582,7 @@ class Node:
         srv_name: str,
         *,
         qos_profile: QoSProfile = qos_profile_services_default,
-        callback_group: CallbackGroup = None
+        callback_group: Optional[CallbackGroup] = None
     ) -> Client:
         """
         Create a new service client.
@@ -1625,7 +1625,7 @@ class Node:
         callback: Callable[[SrvTypeRequest, SrvTypeResponse], SrvTypeResponse],
         *,
         qos_profile: QoSProfile = qos_profile_services_default,
-        callback_group: CallbackGroup = None
+        callback_group: Optional[CallbackGroup] = None
     ) -> Service:
         """
         Create a new service server.
@@ -1666,8 +1666,8 @@ class Node:
         self,
         timer_period_sec: float,
         callback: Callable,
-        callback_group: CallbackGroup = None,
-        clock: Clock = None,
+        callback_group: Optional[CallbackGroup] = None,
+        clock: Optional[Clock] = None,
     ) -> Timer:
         """
         Create a new timer.
@@ -1696,7 +1696,7 @@ class Node:
     def create_guard_condition(
         self,
         callback: Callable,
-        callback_group: CallbackGroup = None
+        callback_group: Optional[CallbackGroup] = None
     ) -> GuardCondition:
         """Create a new guard condition."""
         if callback_group is None:
@@ -1711,7 +1711,7 @@ class Node:
     def create_rate(
         self,
         frequency: float,
-        clock: Clock = None,
+        clock: Optional[Clock] = None,
     ) -> Rate:
         """
         Create a Rate object.
